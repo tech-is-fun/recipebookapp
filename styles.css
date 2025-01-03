@@ -13,34 +13,37 @@ body {
 header {
     background-color: #333;
     color: white;
-    text-align: center;
     padding: 1rem;
-    position: relative;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .add-button {
-    position: absolute;
-    right: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
     background-color: #4CAF50;
     color: white;
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 4px;
     cursor: pointer;
+    font-size: 1rem;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 1rem;
 }
 
 .categories-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
 }
 
 .category-card {
@@ -64,14 +67,14 @@ header {
 }
 
 .recipe-grid {
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 #recipe-grid-content {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
+    gap: 1rem;
+    margin-top: 1rem;
 }
 
 .recipe-card {
@@ -90,6 +93,7 @@ header {
 .recipe-card h2 {
     margin-bottom: 0.5rem;
     color: #333;
+    font-size: 1.2rem;
 }
 
 .recipe-info {
@@ -100,7 +104,7 @@ header {
 .recipe-detail {
     background-color: white;
     border-radius: 8px;
-    padding: 2rem;
+    padding: 1.5rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -112,6 +116,7 @@ header {
     border-radius: 4px;
     cursor: pointer;
     margin-bottom: 1rem;
+    font-size: 1rem;
 }
 
 .hidden {
@@ -120,11 +125,12 @@ header {
 
 .recipe-content h1 {
     margin-bottom: 1rem;
+    font-size: 1.5rem;
 }
 
 .recipe-metadata {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 1rem;
     margin-bottom: 2rem;
     color: #666;
@@ -153,28 +159,34 @@ header {
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    padding: 1rem;
 }
 
 .modal-content {
     background-color: white;
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: 8px;
-    width: 90%;
+    width: 100%;
     max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
-.modal-content h2 {
+.modal-title {
     margin-bottom: 1rem;
+    font-size: 1.3rem;
+    color: #333;
 }
 
 .modal-content input,
 .modal-content select,
 .modal-content textarea {
     width: 100%;
-    padding: 0.5rem;
+    padding: 0.75rem;
     margin-bottom: 1rem;
     border: 1px solid #ddd;
     border-radius: 4px;
+    font-size: 1rem;
 }
 
 .modal-content textarea {
@@ -182,16 +194,61 @@ header {
     resize: vertical;
 }
 
-.modal-content button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-right: 0.5rem;
+.modal-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
 }
 
-.modal-content button[type="button"] {
+.submit-button,
+.cancel-button {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.submit-button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.cancel-button {
     background-color: #666;
+    color: white;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 600px) {
+    header {
+        padding: 0.75rem;
+    }
+
+    .header-content h1 {
+        font-size: 1.3rem;
+    }
+
+    .add-button {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .container {
+        padding: 0.75rem;
+    }
+
+    .category-card {
+        padding: 1rem;
+    }
+
+    .modal-content {
+        padding: 1rem;
+    }
+
+    .modal-title {
+        font-size: 1.2rem;
+    }
 }
