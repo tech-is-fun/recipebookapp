@@ -9,11 +9,7 @@
 <body>
     <header>
         <h1>Shared Recipes</h1>
-        <div class="auth-container">
-            <button id="loginBtn" class="auth-button">Admin Login</button>
-            <button id="logoutBtn" class="auth-button hidden">Logout</button>
-            <button id="addRecipeBtn" class="auth-button hidden">Add Recipe</button>
-        </div>
+        <button id="addRecipeBtn" class="add-button">Add Recipe</button>
     </header>
     
     <main>
@@ -34,20 +30,10 @@
                 <div id="recipe-content"></div>
             </div>
 
-            <!-- Login Modal -->
-            <div id="loginModal" class="modal hidden">
-                <div class="modal-content">
-                    <h2>Admin Login</h2>
-                    <input type="password" id="passwordInput" placeholder="Enter password">
-                    <button onclick="checkPassword()">Login</button>
-                    <button onclick="closeModal()">Cancel</button>
-                </div>
-            </div>
-
-            <!-- Add/Edit Recipe Modal -->
+            <!-- Add Recipe Modal -->
             <div id="recipeModal" class="modal hidden">
                 <div class="modal-content">
-                    <h2 id="recipeModalTitle">Add New Recipe</h2>
+                    <h2>Add New Recipe</h2>
                     <form id="recipeForm">
                         <input type="text" id="recipeTitle" placeholder="Recipe Title" required>
                         <select id="recipeCategory" required>

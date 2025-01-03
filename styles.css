@@ -18,21 +18,17 @@ header {
     position: relative;
 }
 
-.auth-container {
+.add-button {
     position: absolute;
     right: 1rem;
     top: 50%;
     transform: translateY(-50%);
-}
-
-.auth-button {
     background-color: #4CAF50;
     color: white;
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 4px;
     cursor: pointer;
-    margin-left: 0.5rem;
 }
 
 .container {
@@ -85,34 +81,10 @@ header {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     transition: transform 0.2s;
-    position: relative;
 }
 
 .recipe-card:hover {
     transform: translateY(-4px);
-}
-
-.recipe-actions {
-    position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
-    display: none;
-}
-
-.recipe-card:hover .recipe-actions {
-    display: block;
-}
-
-.action-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.25rem;
-    color: #666;
-}
-
-.action-button:hover {
-    color: #333;
 }
 
 .recipe-card h2 {

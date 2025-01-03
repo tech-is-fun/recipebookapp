@@ -1,5 +1,4 @@
-// Store recipes in localStorage to persist data
-let recipes = JSON.parse(localStorage.getItem('recipes')) || [
+const recipes = [
     {
         id: 1,
         title: "Classic Chocolate Chip Cookies",
@@ -54,18 +53,4 @@ let recipes = JSON.parse(localStorage.getItem('recipes')) || [
     }
 ];
 
-// Save recipes to localStorage
-function saveRecipes() {
-    localStorage.setItem('recipes', JSON.stringify(recipes));
-}
-
-// Initialize recipes in localStorage if not already present
-if (!localStorage.getItem('recipes')) {
-    saveRecipes();
-}
-
 const categories = ["Appetizer", "Main Course", "Dessert", "Beverage"];
-
-// Authentication state
-let isAuthenticated = false;
-const ADMIN_PASSWORD = "Jamieisc00l";
