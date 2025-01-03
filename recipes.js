@@ -1,4 +1,5 @@
-const recipes = [
+// Store recipes in localStorage to persist data
+let recipes = JSON.parse(localStorage.getItem('recipes')) || [
     {
         id: 1,
         title: "Classic Chocolate Chip Cookies",
@@ -50,35 +51,21 @@ const recipes = [
             "Sprinkle with Parmesan cheese and fresh ground pepper",
             "Serve immediately"
         ]
-    },
-    {
-        id: 3,
-        title: "Simple Sugar Cookies",
-        yield: "24 cookies",
-        category: "Dessert",
-        cookTime: "10 minutes",
-        prepTime: "20 minutes",
-        ingredients: [
-            "2 3/4 cups all-purpose flour",
-            "1 teaspoon baking soda",
-            "1/2 teaspoon salt",
-            "1 1/4 cups softened butter",
-            "2 cups white sugar",
-            "2 eggs",
-            "2 teaspoons vanilla extract",
-            "1/4 cup sugar for rolling"
-        ],
-        directions: [
-            "Preheat oven to 350°F (175°C) and line baking sheets with parchment paper",
-            "In a medium bowl, whisk together flour, baking soda, and salt. Set aside",
-            "In a large bowl, cream together butter and sugar until smooth",
-            "Beat in eggs and vanilla extract until well combined",
-            "Gradually blend in dry ingredients",
-            "Roll rounded tablespoons of dough into balls",
-            "Roll the balls in the remaining sugar",
-            "Place cookies 2 inches apart on ungreased baking sheets",
-            "Bake for 8 to 10 minutes, or until golden brown around the edges",
-            "Let stand on baking sheet for 2 minutes before removing to cool on wire racks"
-        ]
     }
 ];
+
+// Save recipes to localStorage
+function saveRecipes() {
+    localStorage.setItem('recipes', JSON.stringify(recipes));
+}
+
+// Initialize recipes in localStorage if not already present
+if (!localStorage.getItem('recipes')) {
+    saveRecipes();
+}
+
+const categories = ["Appetizer", "Main Course", "Dessert", "Beverage"];
+
+// Authentication state
+let isAuthenticated = false;
+const ADMIN_PASSWORD = "Jamieisc00l";

@@ -15,6 +15,24 @@ header {
     color: white;
     text-align: center;
     padding: 1rem;
+    position: relative;
+}
+
+.auth-container {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.auth-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 0.5rem;
 }
 
 .container {
@@ -23,10 +41,41 @@ header {
     padding: 2rem;
 }
 
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.category-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s;
+    text-align: center;
+}
+
+.category-card:hover {
+    transform: translateY(-4px);
+}
+
+.category-header {
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #333;
+}
+
 .recipe-grid {
+    margin-top: 2rem;
+}
+
+#recipe-grid-content {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 2rem;
+    margin-top: 2rem;
 }
 
 .recipe-card {
@@ -36,10 +85,34 @@ header {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     transition: transform 0.2s;
+    position: relative;
 }
 
 .recipe-card:hover {
     transform: translateY(-4px);
+}
+
+.recipe-actions {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    display: none;
+}
+
+.recipe-card:hover .recipe-actions {
+    display: block;
+}
+
+.action-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem;
+    color: #666;
+}
+
+.action-button:hover {
+    color: #333;
 }
 
 .recipe-card h2 {
@@ -70,7 +143,7 @@ header {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 .recipe-content h1 {
@@ -95,4 +168,58 @@ header {
 
 .directions-list li {
     margin-bottom: 0.5rem;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+}
+
+.modal-content h2 {
+    margin-bottom: 1rem;
+}
+
+.modal-content input,
+.modal-content select,
+.modal-content textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.modal-content textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.modal-content button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 0.5rem;
+}
+
+.modal-content button[type="button"] {
+    background-color: #666;
 }

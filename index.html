@@ -1,24 +1,70 @@
-// index.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Recipe Book</title>
+    <title>Shared Recipes</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>My Recipe Book</h1>
+        <h1>Shared Recipes</h1>
+        <div class="auth-container">
+            <button id="loginBtn" class="auth-button">Admin Login</button>
+            <button id="logoutBtn" class="auth-button hidden">Logout</button>
+            <button id="addRecipeBtn" class="auth-button hidden">Add Recipe</button>
+        </div>
     </header>
     
     <main>
         <div class="container">
-            <div id="recipe-list" class="recipe-grid"></div>
+            <!-- Categories View -->
+            <div id="categories-list" class="categories-grid"></div>
             
+            <!-- Recipe List View -->
+            <div id="recipe-list" class="recipe-grid hidden">
+                <button class="back-button" onclick="showCategories()">← Back to Categories</button>
+                <h2 id="category-title" class="category-header"></h2>
+                <div id="recipe-grid-content"></div>
+            </div>
+            
+            <!-- Recipe Detail View -->
             <div id="recipe-detail" class="recipe-detail hidden">
                 <button class="back-button" onclick="showRecipeList()">← Back to Recipes</button>
                 <div id="recipe-content"></div>
+            </div>
+
+            <!-- Login Modal -->
+            <div id="loginModal" class="modal hidden">
+                <div class="modal-content">
+                    <h2>Admin Login</h2>
+                    <input type="password" id="passwordInput" placeholder="Enter password">
+                    <button onclick="checkPassword()">Login</button>
+                    <button onclick="closeModal()">Cancel</button>
+                </div>
+            </div>
+
+            <!-- Add/Edit Recipe Modal -->
+            <div id="recipeModal" class="modal hidden">
+                <div class="modal-content">
+                    <h2 id="recipeModalTitle">Add New Recipe</h2>
+                    <form id="recipeForm">
+                        <input type="text" id="recipeTitle" placeholder="Recipe Title" required>
+                        <select id="recipeCategory" required>
+                            <option value="Appetizer">Appetizer</option>
+                            <option value="Main Course">Main Course</option>
+                            <option value="Dessert">Dessert</option>
+                            <option value="Beverage">Beverage</option>
+                        </select>
+                        <input type="text" id="recipeYield" placeholder="Yield (e.g., 4 servings)" required>
+                        <input type="text" id="recipePrepTime" placeholder="Prep Time" required>
+                        <input type="text" id="recipeCookTime" placeholder="Cook Time" required>
+                        <textarea id="recipeIngredients" placeholder="Ingredients (one per line)" required></textarea>
+                        <textarea id="recipeDirections" placeholder="Directions (one per line)" required></textarea>
+                        <button type="submit">Save Recipe</button>
+                        <button type="button" onclick="closeRecipeModal()">Cancel</button>
+                    </form>
+                </div>
             </div>
         </div>
     </main>
@@ -27,4 +73,3 @@
     <script src="app.js"></script>
 </body>
 </html>
-
